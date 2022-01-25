@@ -99,7 +99,21 @@ return sumNumbers(anArray)/anArray.length
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(anArray) {
+
+  let total = 0;
+
+  if (anArray.length == 0) {
+    return null
+  } else if (anArray.lenght == 1) {
+    return anArray[0].length
+  } else {
+    for (let i = 0; i < anArray.length; i++) {
+      total += anArray[i].length
+    }
+    return total/anArray.length
+  }
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
