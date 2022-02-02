@@ -126,14 +126,19 @@ function avg(anArray) {
   if (anArray.length == 0) {
     return null
   } else if (anArray.length == 1) {
-    if (typeof anArray[0] === "string") {
-      return Number(anArray[0]) 
+      return Number(anArray[0]); 
     } else {
       for (let i = 0; i < anArray.length; i++) {
-        total += Number(anArray[i])
-      } return total/anArray.length
-    }
-}}
+        if (typeof anArray[i] == 'string') {
+          if (typeof Number(anArray[i]) == Number) { //if the string can be coerced into a number
+            total += Number(anArray[i])
+          } else {                                   //if it's a word
+            total += anArray[i].length
+          }
+        }
+      } 
+    } return total/anArray.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -150,14 +155,29 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(anArray) {
+  let newArray = [];
 
+  if (anArray.length === 0) {
+    return null;
+  } else {
+  for (let i = 0; i < anArray.length; i++) {
+    if (newArray.includes(anArray[i]) == false) {
+      newArray.push(anArray[i]);
+    } 
+  } return newArray
+}};
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(anArray, word) {
+  if (anArray.length === 0) {
+    return null
+  } else {
+  return anArray.includes(word);
+}};
 
 
 
@@ -176,7 +196,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(anArray, word) {
+  let counter = 0;
+
+  for (let i = 0; i < anArray.length; i++) {
+    if (anArray[i] == word) {
+      counter += 1
+    } 
+  } return counter
+}
 
 
 
