@@ -63,20 +63,23 @@ function sum(numbers) {
   let total = 0;
 
   if (numbers.length == 0) {
-    return 0
+    return total
   } else if (numbers.length == 1) {
     return numbers[0]
-  } else {
+  } else {                                          //More than one element
     for (i = 0; i < numbers.length; i++) {
-      if (typeof numbers[i] === 'object'||'array') {
-        console.log(numbers[i])
-        throw new Error('Wrong type!')
-      } else if (typeof numbers[i] === 'number' ||'string') {
+      if (typeof numbers[i] === 'object') {
+        throw new Error("Unsupported data type sir or ma'am")
+      } else if (typeof numbers[i] === 'number') {
         total += Number(numbers[i])
+      } else if (typeof numbers[i] === 'string') {
+        total += numbers[i].length
+      } else if (typeof numbers[i] === 'boolean') {
+        total += numbers[i]
       }
-  } 
-  } 
+    } 
   return total
+  }
 }
 
 
@@ -127,16 +130,10 @@ function avg(anArray) {
       return Number(anArray[0]) 
     } else {
       for (let i = 0; i < anArray.length; i++) {
-        if (typeof anArray[i] == "string") {
         total += Number(anArray[i])
-      } else {
-        total += anArray[i].length
-      }
+      } return total/anArray.length
     }
 }}
-console.log(total)
-return total/anArray.length
-}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
